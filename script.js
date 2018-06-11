@@ -18,15 +18,11 @@ let jokeBoxElem = document.getElementById("jokeBox");
 jokeButtonElem.addEventListener("click", getDadJoke);
 
 // Make call to Dad Joke API after user clicks button.
+// The only function of the button should be to call another function to request a joke. The button should not do anything else such as displaying the joke. Alternatively, this could be wrapped in an anonymous function.
 function getDadJoke() {
-    console.log("this is working!");
+    console.log("User clicked button! Sending request to API.");
   
-   let dadJoke = requestJoke(); 
-  
-  
-  
-    // jokeBoxElem.textContent = requestObject.responseText;
-  
+   requestJoke();  
 }
 
 /////////////////////////////////////////////////////////////////
@@ -51,8 +47,8 @@ function requestJoke() {
         requestObject.open("GET", "https://icanhazdadjoke.com/");
 
         // STEP 5:
-        // Set a header "Accept: application/json" to request that data format
-        requestObject.setRequestHeader('Accept', 'text/plain');
+        // Set a header "Accept: text/plain" to request that data format
+        requestObject.setRequestHeader("Accept", "text/plain");
 
         // STEP 6:
         // Finally, actually send this request to their server
@@ -65,8 +61,9 @@ function requestJoke() {
           // Display the joke in the console
           console.log(requestObject.responseText);
           
-          // Return the joke as output, so we can use it outside of this function   
-          return requestObject.responseText;
+          // This function runs once the API returns the joke. Now we can display it on the page. 
+          // From a design perspective, should this line be here within the handleResponse() method since that method is itself part of the requestJoke() method? 
+          jokeBoxElem.textContent = requestObject.responseText;
           
         }
 
