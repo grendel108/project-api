@@ -10,6 +10,9 @@
     
     <link rel="stylesheet" href="styles.css">
     
+    <!-- include Firebase library before JS loads.-->
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js" defer></script>
+
     <script src="script.js" defer></script>
   </head>
   
@@ -27,7 +30,9 @@
       <p>
         
 
-      <p id="jokeBox">Joke is coming up!</p>  
+      <p id="jokeBoxId">Show Joke ID.</p>  
+
+      <p id="jokeBoxJoke">Show Joke.</p>
 
       
     </main>

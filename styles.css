@@ -41,9 +41,16 @@ hr {
  margin: 2em 0;
 }
 
-#jokeBox {
- color:#ffffff;
- background-color:#ff9999;
+#jokeBoxId {
+ color:#FFFFFF;
+ background-color:#FF9999;
  text-align:center; 
  padding:30px;
 }
+
+#jokeBoxJoke {
+  color:#0000FF;
+  background-color:#FF9999;
+  text-align:center; 
+  padding:30px;
+ }
