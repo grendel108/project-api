@@ -91,9 +91,16 @@ function requestJoke() {
 
             // Save joke to Firebase.
             // These are saved as separate Key-Value pairs. Why don't I save the jokes into a single dadJoke object that nests the jokes? Review Penguins data structure in 3.5.
-            let dbJoke = firebase.database().ref(objJSON.id);
-                     
-            dbJoke.set(objJSON.joke);
+            
+            let dbJoke = firebase.database().ref("dadjokes");
+            let dadJokeObjects = {
+                [objJSON.id]: objJSON.joke
+            }
+            dadJokeObjects[objJSON.id] = objJSON.joke;
+            // This is replacing the old joke in the object rather than adding a new one.
+            dbJoke.set(dadJokeObjects);
+
+
         }
 
           
